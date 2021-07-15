@@ -1,0 +1,8 @@
+{
+  "canisters": {
+    "nyamkamunhjin-portfolio": {
+      "type": "assets",
+      "sources": ["out"]
+    }
+  }
+}
