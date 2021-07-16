@@ -1,13 +1,13 @@
 /* eslint-disable react/no-unescaped-entities */
-import { motion } from 'framer-motion';
-import { NextPage } from 'next';
-import Head from 'next/head';
-import React from 'react';
-import { HiCheckCircle } from 'react-icons/hi';
-import { IoLogoGithub } from 'react-icons/io5';
+import { motion } from 'framer-motion'
+import { NextPage } from 'next'
+import Head from 'next/head'
+import React from 'react'
+import { HiCheckCircle } from 'react-icons/hi'
+import { IoLogoGithub } from 'react-icons/io5'
 
 interface NameComponent {
-  username: string;
+  username: string
 }
 
 enum Gradients {
@@ -19,13 +19,13 @@ enum Gradients {
   mojave = 'from-yellow-100 via-yellow-300 to-yellow-500',
 }
 
-type TicketColor = keyof typeof Gradients;
+type TicketColor = keyof typeof Gradients
 
 interface Ticket {
-  username: string;
-  name: string;
-  avatar: string;
-  ticketColor?: TicketColor;
+  username: string
+  name: string
+  avatar: string
+  ticketColor?: TicketColor
 }
 
 const NameComponent: React.FC<NameComponent> = ({ username }) => (
@@ -48,7 +48,7 @@ const NameComponent: React.FC<NameComponent> = ({ username }) => (
     <span className="text-base font-code">{username}</span>
     <HiCheckCircle className="ml-auto text-3xl text-green-400" />
   </motion.div>
-);
+)
 
 const Ticket: React.FC<Ticket> = ({
   name,
@@ -99,11 +99,10 @@ const Ticket: React.FC<Ticket> = ({
       </div>
     </div>
   </motion.div>
-);
+)
 
 const Card: NextPage = () => {
-  const [ticketColor, setTicketColor] =
-    React.useState<TicketColor>('greenBlue');
+  const [ticketColor, setTicketColor] = React.useState<TicketColor>('greenBlue')
 
   return (
     <>
@@ -185,7 +184,7 @@ const Card: NextPage = () => {
         />
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Card;
+export default Card

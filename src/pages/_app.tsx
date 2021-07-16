@@ -1,11 +1,32 @@
-import { AppProps } from 'next/app';
-import React from 'react';
+/* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import { AppProps } from 'next/app'
+import Link from 'next/link'
+import React from 'react'
 // eslint-disable-next-line import/no-extraneous-dependencies
-import 'tailwindcss/tailwind.css';
+import 'tailwindcss/tailwind.css'
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => (
-  // eslint-disable-next-line react/jsx-props-no-spreading
-  <Component {...pageProps} />
-);
+  <div>
+    <nav className="border-b p-6">
+      <p className="text-4xl font-bold">Metaverse Marketplace</p>
+      <div className="flex mt-4">
+        <Link href="/">
+          <a className="mr-4 text-pink-500">Home</a>
+        </Link>
+        <Link href="/create-item">
+          <a className="mr-6 text-pink-500">Sell Digital Asset</a>
+        </Link>
+        <Link href="/my-assets">
+          <a className="mr-6 text-pink-500">My Digital Assets</a>
+        </Link>
+        <Link href="/creator-dashboard">
+          <a className="mr-6 text-pink-500">Creator Dashboard</a>
+        </Link>
+      </div>
+    </nav>
+    <Component {...pageProps} />
+  </div>
+)
 
-export default MyApp;
+export default MyApp

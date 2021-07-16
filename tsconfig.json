@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "module": "CommonJS",
+    "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -9,15 +8,16 @@
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
+    "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "baseUrl": "src",
+    "baseUrl": "./src",
     "downlevelIteration": true,
     "allowSyntheticDefaultImports": true
   },
-  "include": ["src/", "next-env.d.ts", "scripts", "test"],
-  "files": ["hardhat.config.ts", "test/sample-test.ts"],
+  "include": ["src", "next-env.d.ts"],
+  "files": ["test/sample-test.js", "scripts/deploy.js"],
   "exclude": ["node_modules"]
 }
