@@ -1,10 +1,7 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @typescript-eslint/no-var-requires */
-/* eslint-disable no-undef */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
-const { expect } = require('chai');
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+import { ethers } from 'hardhat';
 
 describe('NFTMarket', () => {
   it('Should create and execute market sales', async () => {
@@ -44,7 +41,7 @@ describe('NFTMarket', () => {
     /* query for and return the unsold items */
     let items = await market.fetchMarketItems();
     items = await Promise.all(
-      items.map(async (i) => {
+      items.map(async (i: any) => {
         const tokenUri = await nft.tokenURI(i.tokenId);
         const item = {
           price: i.price.toString(),

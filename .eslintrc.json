@@ -20,8 +20,9 @@
     "ecmaFeatures": {
       "jsx": true
     },
+    "files": ["*.ts", "*tsx"],
     "ecmaVersion": 12,
-    "project": "./tsconfig.json",
+    "project": ["./tsconfig.json"],
     "sourceType": "module"
   },
   "plugins": [
@@ -77,14 +78,6 @@
         "jsx": "never",
         "ts": "never",
         "tsx": "never"
-      }
-    ],
-    "prefer-arrow/prefer-arrow-functions": [
-      "error",
-      {
-        "disallowPrototype": true,
-        "singleReturnOnly": false,
-        "classPropertiesAllowed": false
       }
     ],
     "react/jsx-filename-extension": [
