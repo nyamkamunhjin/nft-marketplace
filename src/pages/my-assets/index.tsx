@@ -8,6 +8,9 @@ import React, { useEffect, useState } from 'react'
 import Web3Modal from 'web3modal'
 import NFT from '../../../artifacts/contracts/NFT.sol/NFT.json'
 import Market from '../../../artifacts/contracts/NFTMarket.sol/NFTMarket.json'
+import { Gradients, TicketColor } from '../../utils'
+
+const ticketColor: TicketColor = 'greenBluePurple'
 
 const MyAssets: NextPage = () => {
   const [nfts, setNfts] = useState<any[]>([])
@@ -48,6 +51,7 @@ const MyAssets: NextPage = () => {
         return item
       }),
     )
+    console.log({ items })
     setNfts(items)
     setLoadingState('loaded')
   }
@@ -55,16 +59,26 @@ const MyAssets: NextPage = () => {
     return <h1 className="py-10 px-20 text-3xl">No assets owned</h1>
 
   return (
-    <div className="flex justify-center">
+    <div className="flex">
       <div className="p-4">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
+        <div className="flex flex-wrap gap-4 p-4">
           {nfts.map((nft, i) => (
-            <div key={i} className="border shadow rounded-xl overflow-hidden">
-              <img src={nft.image} className="rounded" alt="nft" />
-              <div className="p-4 bg-black">
-                <p className="text-2xl font-bold text-white">
-                  Price - {nft.price} Eth
-                </p>
+            <div
+              className={`p-1 rounded-lg shadow-lg hover:shadow-2xl component-hover transition-shadow bg-gradient-to-r ${Gradients[ticketColor]} animate-gradient-x`}
+            >
+              <div
+                key={i}
+                className="w-full max-w-xs rounded-lg overflow-hidden"
+              >
+                <img src={nft.image} className="" alt="nft" />
+
+                <div className="p-4 bg-black">
+                  <p
+                    className={`font-mono font-semibold text-3xl text-transparent bg-clip-text bg-gradient-to-r animate-gradient-x ${Gradients[ticketColor]}`}
+                  >
+                    Price - {nft.price} Matic
+                  </p>
+                </div>
               </div>
             </div>
           ))}

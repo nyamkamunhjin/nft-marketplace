@@ -8,6 +8,9 @@ import React, { useEffect, useState } from 'react'
 import Web3Modal from 'web3modal'
 import NFT from '../../../artifacts/contracts/NFT.sol/NFT.json'
 import Market from '../../../artifacts/contracts/NFTMarket.sol/NFTMarket.json'
+import { Gradients, TicketColor } from '../../utils'
+
+const ticketColor: TicketColor = 'greenBluePurple'
 
 const CreatorDashboard: NextPage = () => {
   const [nfts, setNfts] = useState<any>([])
@@ -63,14 +66,24 @@ const CreatorDashboard: NextPage = () => {
     <div>
       <div className="p-4">
         <h2 className="text-2xl py-2">Items Created</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
+        <div className="flex flex-wrap gap-4 p-4">
           {nfts.map((nft: any, i: number) => (
-            <div key={i} className="border shadow rounded-xl overflow-hidden">
-              <img src={nft.image} className="rounded" alt="nft" />
-              <div className="p-4 bg-black">
-                <p className="text-2xl font-bold text-white">
-                  Price - {nft.price} Eth
-                </p>
+            <div
+              className={`p-1 rounded-lg shadow-lg hover:shadow-2xl component-hover transition-shadow bg-gradient-to-r ${Gradients[ticketColor]} animate-gradient-x`}
+            >
+              <div
+                key={i}
+                className="w-full max-w-xs rounded-lg overflow-hidden"
+              >
+                <img src={nft.image} className="" alt="nft" />
+
+                <div className="p-4 bg-black">
+                  <p
+                    className={`font-mono font-semibold text-3xl text-transparent bg-clip-text bg-gradient-to-r animate-gradient-x ${Gradients[ticketColor]}`}
+                  >
+                    Price - {nft.price} Matic
+                  </p>
+                </div>
               </div>
             </div>
           ))}
@@ -80,17 +93,24 @@ const CreatorDashboard: NextPage = () => {
         {Boolean(sold.length) && (
           <div>
             <h2 className="text-2xl py-2">Items sold</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
+            <div className="flex flex-wrap gap-4 p-4">
               {sold.map((nft: any, i: number) => (
                 <div
-                  key={i}
-                  className="border shadow rounded-xl overflow-hidden"
+                  className={`p-1 rounded-lg shadow-lg hover:shadow-2xl component-hover transition-shadow bg-gradient-to-r ${Gradients[ticketColor]} animate-gradient-x`}
                 >
-                  <img src={nft.image} className="rounded" alt="nft" />
-                  <div className="p-4 bg-black">
-                    <p className="text-2xl font-bold text-white">
-                      Price - {nft.price} Eth
-                    </p>
+                  <div
+                    key={i}
+                    className="w-full max-w-xs rounded-lg overflow-hidden"
+                  >
+                    <img src={nft.image} className="" alt="nft" />
+
+                    <div className="p-4 bg-black">
+                      <p
+                        className={`font-mono font-semibold text-3xl text-transparent bg-clip-text bg-gradient-to-r animate-gradient-x ${Gradients[ticketColor]}`}
+                      >
+                        Price - {nft.price} Matic
+                      </p>
+                    </div>
                   </div>
                 </div>
               ))}
